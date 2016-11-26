@@ -208,6 +208,9 @@ func (c *Cache) gc() {
 		prev := element.Prev()
 		item := element.Value.(*Item)
 		if c.tracking == false || atomic.LoadInt32(&item.refCount) == 0 {
+			if c.onDelete != nil {
+				c.onDelete(item)
+			}
 			c.bucket(item.key).delete(item.key)
 			c.size -= item.size
 			c.list.Remove(element)

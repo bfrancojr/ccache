@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	. "github.com/karlseguin/expect"
+	. "github.com/bfrancojr/expect"
 )
 
 type ItemTests struct{}

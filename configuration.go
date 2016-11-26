@@ -1,5 +1,7 @@
 package ccache
 
+type OnDelete func(interface{})
+
 type Configuration struct {
 	maxSize        int64
 	buckets        int
@@ -8,6 +10,7 @@ type Configuration struct {
 	promoteBuffer  int
 	getsPerPromote int32
 	tracking       bool
+	onDelete       OnDelete
 }
 
 // Creates a configuration object with sensible defaults
@@ -91,4 +94,9 @@ func (c *Configuration) GetsPerPromote(count int32) *Configuration {
 func (c *Configuration) Track() *Configuration {
 	c.tracking = true
 	return c
+}
+
+func (c *Configuration) OnDelete(cb OnDelete) *Configuration {
+	c.onDelete = cb
+	return cb
 }

@@ -1,7 +1,7 @@
 package ccache
 
 import (
-	. "github.com/karlseguin/expect"
+	. "github.com/bfrancojr/expect"
 	"testing"
 )
 

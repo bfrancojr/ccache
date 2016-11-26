@@ -11,7 +11,7 @@ Lock contention on the list is reduced by:
 
 First, download the project:
 
-    go get github.com/karlseguin/ccache
+    go get github.com/bfrancojr/ccache
 
 ## Configuration
 Next, import and create a `Cache` instance:
@@ -19,7 +19,7 @@ Next, import and create a `Cache` instance:
 
 ```go
 import (
-  "github.com/karlseguin/ccache"
+  "github.com/bfrancojr/ccache"
 )
 
 var cache = ccache.New(ccache.Configure())
@@ -169,4 +169,4 @@ By default, items added to a cache have a size of 1. This means that if you conf
 However, if the values you set into the cache have a method `Size() int64`, this size will be used. Note that ccache has an overhead of ~350 bytes per entry, which isn't taken into account. In other words, given a filled up cache, with `MaxSize(4096000)` and items that return a `Size() int64` of 2048, we can expect to find 2000 items (4096000/2048) taking a total space of 4796000 bytes.
 
 ## Want Something Simpler?
-For a simpler cache, checkout out [rcache](https://github.com/karlseguin/rcache)
+For a simpler cache, checkout out [rcache](https://github.com/bfrancojr/rcache)
