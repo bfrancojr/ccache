@@ -98,5 +98,5 @@ func (c *Configuration) Track() *Configuration {
 
 func (c *Configuration) OnDelete(cb OnDelete) *Configuration {
 	c.onDelete = cb
-	return cb
+	return c
 }
